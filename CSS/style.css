@@ -1,0 +1,14 @@
+button {
+  display: block;
+  margin-top: 20px;
+}
+
+input {
+  text-align: right;
+}
+
+div {
+  font-family: monospace, monospace;
+}
+
+/*# sourceMappingURL=style.css.map */
