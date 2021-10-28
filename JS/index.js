@@ -56,9 +56,12 @@ const oppoStatus = [
         document.getElementsByTagName("button")[0].addEventListener("click", function(event){ //give the result as JSON - 3rd request
             event.preventDefault(); //prevent the refresh
 
-            console.log(JSON.stringify({status : select[0].value.charAt(0), success : document.getElementsByName("success")[0].value })); //not mandatory
+             var statusValue = Number.parseInt(select[0].value.charAt(0), 10)
+             var successValue = Number.parseInt(document.getElementsByName("success")[0].value, 10)
 
-            document.getElementsByClassName('output')[0].innerHTML = JSON.stringify({status : select[0].value.charAt(0), success : document.getElementsByName("success")[0].value }); //charAT(0) gives the first Character, in our situation the numeric value only
+            console.log(JSON.stringify({status : statusValue, successValue : successValue })); //not mandatory
+
+            document.getElementsByClassName('output')[0].innerHTML = JSON.stringify({status : statusValue, success : successValue }); //charAT(0) gives the first Character, in our situation the numeric value only
         })
     }
   }
