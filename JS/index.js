@@ -35,7 +35,7 @@ const oppoStatus = [
 
         let select = document.getElementsByName("status"); //simplification of variables for lisibility
 
-        for (var i=0; i < oppoStatus.length; i++) { //Add of options to the selector
+        for (var i=0; i < oppoStatus.length; i++) { //Add of options to the selector - 1st request
             var opt = document.createElement('option');
             opt.value = oppoStatus[i].STATUS;
             opt.innerHTML = oppoStatus[i].STATUS;
@@ -44,7 +44,7 @@ const oppoStatus = [
 
         document.getElementsByName("success")[0].value = oppoStatus[0].SUCCESS //start the page at value 0
 
-        select[0].addEventListener("change", function(){ //change the values of succes on input
+        select[0].addEventListener("change", function(){ //change the values of success on input - 2nd request
             var stat = select[0].value;
             for (var y=0;y <oppoStatus.length; y++){
                 if (stat == oppoStatus[y].STATUS){
@@ -53,11 +53,12 @@ const oppoStatus = [
             }
         });
 
-        document.getElementsByTagName("button")[0].addEventListener("click", function(event){ //give the result as JSON
-            event.preventDefault();
-            console.log(JSON.stringify({status : select[0].value.charAt(0), success : document.getElementsByName("success")[0].value }));
+        document.getElementsByTagName("button")[0].addEventListener("click", function(event){ //give the result as JSON - 3rd request
+            event.preventDefault(); //prevent the refresh
 
-            document.getElementsByClassName('output')[0].innerHTML = JSON.stringify({status : select[0].value.charAt(0), success : document.getElementsByName("success")[0].value });
+            console.log(JSON.stringify({status : select[0].value.charAt(0), success : document.getElementsByName("success")[0].value })); //not mandatory
+
+            document.getElementsByClassName('output')[0].innerHTML = JSON.stringify({status : select[0].value.charAt(0), success : document.getElementsByName("success")[0].value }); //charAT(0) gives the first Character, in our situation the numeric value only
         })
     }
   }
